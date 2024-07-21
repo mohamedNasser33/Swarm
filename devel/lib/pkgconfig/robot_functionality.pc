@@ -1,0 +1,8 @@
+prefix=/home/moriarty/Desktop/Course_ws/devel
+
+Name: robot_functionality
+Description: Description of robot_functionality
+Version: 0.0.0
+Cflags: -I/home/moriarty/Desktop/Course_ws/devel/include
+Libs: -L${prefix}/lib 
+Requires: 

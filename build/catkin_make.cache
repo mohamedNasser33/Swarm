@@ -1,0 +1,2 @@
+robot_configuration:robot_description:robot_functionality:robot_localization
+-DCATKIN_DEVEL_PREFIX=/home/moriarty/Desktop/Course_ws/devel -DCMAKE_INSTALL_PREFIX=/home/moriarty/Desktop/Course_ws/install -G Unix Makefiles

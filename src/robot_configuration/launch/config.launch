@@ -1,0 +1,26 @@
+<launch>
+  <!-- Load parameters from YAML files -->
+  <arg name="py_suffix" value=".py"/>
+  <arg name="wheel_radius" default="0.033"/>
+  <arg name="wheel_separation" default="0.17"/> 
+  <rosparam file="$(find robot_configuration)/config/configuration.yaml" command="load"/>
+  <rosparam file="$(find joint_state_controller)/joint_state_controller.yaml" command="load"/>
+
+  <!-- Start the robot state publisher node -->
+  <node pkg="robot_state_publisher" name="robot_State_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
+
+  <!-- Start the controller manager and load the controllers -->
+  <node pkg="controller_manager" type="spawner" name="controller" respawn="false" output="screen" 
+        args="wheel_right_controller wheel_left_controller joint_state_controller"/>
+
+  <!-- Define the Simple_Controller node -->
+  <node pkg="robot_configuration" type="SimpleController$(arg py_suffix)" name="Simple_Controller">
+    <param name="wheel_radius" value="$(arg wheel_radius)" />
+    <param name="wheel_separation" value="$(arg wheel_separation)" />
+  </node>
+  <node pkg="robot_configuration" type="Noisy_Controller$(arg py_suffix)" name="Noisy_Controller">
+    <param name="wheel_radius" value="$(arg wheel_radius)" />
+    <param name="wheel_separation" value="$(arg wheel_separation)" />
+  </node>
+
+</launch>

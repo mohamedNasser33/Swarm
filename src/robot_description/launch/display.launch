@@ -1,0 +1,16 @@
+<launch>
+  <!-- Define the path to the URDF file -->
+  <arg name="model" default="$(find robot_description)/urdf/robot.urdf.xacro"/>
+
+  <!-- Pass the URDF to the parameter server -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)"/>
+  <param name="/use_sim_time" value="true"/>
+  <!-- Start the robot state publisher node -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
+
+  <!-- Start the joint state publisher GUI -->
+  <node pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" name="joint_state_publisher_gui" />
+
+  <!-- Start RViz -->
+  <node pkg="rviz" type="rviz" name="rviz" />
+</launch>

@@ -1,0 +1,9 @@
+digraph G {
+"sensor_frame" -> "Detected_Object"[label=" Broadcaster: /tf_sensor_broadcaster\nAverage rate: 10.203\nBuffer length: 4.9\nMost recent transform: 1719386587.577\nOldest transform: 1719386582.676\n"];
+"base_link" -> "sensor_frame"[label=" Broadcaster: /tf_sensor_broadcaster\nAverage rate: 10.203\nBuffer length: 4.901\nMost recent transform: 1719386587.577\nOldest transform: 1719386582.677\n"];
+"odom" -> "base_link"[label=" Broadcaster: /tf_sensor_broadcaster\nAverage rate: 10.203\nBuffer length: 4.901\nMost recent transform: 1719386587.578\nOldest transform: 1719386582.677\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1719386587.6785185"[ shape=plaintext ] ;
+}->"odom";
+}

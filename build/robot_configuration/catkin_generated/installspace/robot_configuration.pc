@@ -1,0 +1,8 @@
+prefix=/home/moriarty/Desktop/Course_ws/install
+
+Name: robot_configuration
+Description: Description of robot_configuration
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
